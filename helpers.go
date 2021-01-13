@@ -30,6 +30,11 @@ func CreateTestArrays(size int) (sorted, unsorted []int) {
     return
 }
 
+func Swap(sequence []int, a, b int) {
+	tmp := sequence[a]
+	sequence[a] = sequence[b]
+	sequence[b] = tmp
+}
 
 func main() {
     sorted, unsorted := CreateTestArrays(10)
