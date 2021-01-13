@@ -1,24 +1,22 @@
 package gokken
 
-import "testing"
-import "reflect"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestBubbleSort(t *testing.T) {
-	got := []int{5, 4, 3, 2, 1}
-	want := []int{1, 2, 3, 4, 5}
-	BubbleSort(got)
-
-    if !reflect.DeepEqual(got, want) {
-        t.Errorf("got %q want %q", got, want)
+    sorted, unsorted := CreateTestArrays(10)
+	BubbleSort(unsorted)
+	if !reflect.DeepEqual(sorted, unsorted) {
+		t.Errorf("got %v want %v", unsorted, sorted)
     }
 }
 
 func TestOptimizedBubbleSort(t *testing.T) {
-	got := []int{5, 4, 3, 2, 1}
-	want := []int{1, 2, 3, 4, 5}
-	OptimizedBubbleSort(got)
-
-    if !reflect.DeepEqual(got, want) {
-        t.Errorf("got %q want %q", got, want)
+    sorted, unsorted := CreateTestArrays(10)
+	OptimizedBubbleSort(unsorted)
+	if !reflect.DeepEqual(sorted, unsorted) {
+		t.Errorf("got %v want %v", unsorted, sorted)
     }
 }

@@ -1,24 +1,25 @@
 package gokken
 
-import "testing"
-import "reflect"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestSelectionSortInPlace(t *testing.T) {
-	got := []int{5, 4, 3, 2, 1}
-	want := []int{1, 2, 3, 4, 5}
-	SelectionSortInPlace(got)
+    sorted, unsorted := CreateTestArrays(10)
+    SelectionSortInPlace(unsorted)
 
-    if !reflect.DeepEqual(got, want) {
-        t.Errorf("got %q want %q", got, want)
-    }
+	if !reflect.DeepEqual(sorted, unsorted) {
+		t.Errorf("got %v want %v", unsorted, sorted)
+	}
 }
 
 func TestSelectionSortNewArray(t *testing.T) {
-	got := SelectionSortNewArray([]int{5, 4, 3, 2, 1})
-	want := []int{1, 2, 3, 4, 5}
+    sorted, unsorted := CreateTestArrays(10)
+	unsorted = SelectionSortNewArray(unsorted)
 
-    if !reflect.DeepEqual(got, want) {
-        t.Errorf("got %q want %q", got, want)
-    }
+	if !reflect.DeepEqual(sorted, unsorted) {
+		t.Errorf("got %v want %v", unsorted, sorted)
+	}
 }
 

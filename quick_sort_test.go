@@ -6,31 +6,28 @@ import (
 )
 
 func TestQuickSort(t *testing.T) {
-	input := []int{5, 4, 3, 2, 1}
-	want := []int{1, 2, 3, 4, 5}
-	got := QuickSort(input)
+    sorted, unsorted := CreateTestArrays(10)
+	unsorted = QuickSort(unsorted)
 
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %q want %q", got, want)
+	if !reflect.DeepEqual(sorted, unsorted) {
+		t.Errorf("got %v want %v", unsorted, sorted)
 	}
 }
 
 func TestQuickSortLomuto(t *testing.T) {
-	got := []int{5, 4, 3, 2, 1}
-	want := []int{1, 2, 3, 4, 5}
-	QuickSortLomuto(got, 0, len(got)-1)
+    sorted, unsorted := CreateTestArrays(10)
+    QuickSortLomuto(unsorted, 0, len(unsorted) - 1)
 
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %q want %q", got, want)
+	if !reflect.DeepEqual(sorted, unsorted) {
+		t.Errorf("got %v want %v", unsorted, sorted)
 	}
 }
 
 func TestQuickSortHoare(t *testing.T) {
-	got := []int{5, 4, 3, 2, 1}
-	want := []int{1, 2, 3, 4, 5}
-	QuickSortHoare(got, 0, len(got)-1)
+    sorted, unsorted := CreateTestArrays(10)
+	QuickSortHoare(unsorted, 0, len(unsorted) - 1)
 
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %q want %q", got, want)
+	if !reflect.DeepEqual(sorted, unsorted) {
+		t.Errorf("got %v want %v", unsorted, sorted)
 	}
 }
