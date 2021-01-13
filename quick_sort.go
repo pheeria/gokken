@@ -20,22 +20,16 @@ func QuickSort(sequence []int) []int {
 	return append(append(QuickSort(less), pivot), QuickSort(greater)...)
 }
 
-func swap(sequence []int, a, b int) {
-	tmp := sequence[a]
-	sequence[a] = sequence[b]
-	sequence[b] = tmp
-}
-
 func partitionLomuto(sequence []int, low, high int) int {
 	pivot := sequence[high]
 	i := low
 	for j := low; j < high; j++ {
 		if sequence[j] < pivot {
-			swap(sequence, i, j)
+			Swap(sequence, i, j)
 			i++
 		}
 	}
-	swap(sequence, i, high)
+	Swap(sequence, i, high)
 	return i
 }
 func QuickSortLomuto(sequence []int, low, high int) {
@@ -62,7 +56,7 @@ func partititionHoare(sequence []int, low, high int) int {
 			return right
 		}
 
-		swap(sequence, left, right)
+		Swap(sequence, left, right)
 	}
 }
 func QuickSortHoare(sequence []int, low, high int) {

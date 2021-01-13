@@ -16,31 +16,28 @@ func findMin(array []int) int {
 	return index
 }
 
-func SelectionSortNewArray(array []int) []int {
-	result := make([]int, len(array))
-	length := len(array)
+func SelectionSortNewArray(sequence []int) []int {
+	result := make([]int, len(sequence))
+	length := len(sequence)
 
 	for i := 0; i < length; i++ {
-		min := findMin(array)
-		result[i] = array[min]
-		array = append(array[:min], array[min+1:]...)
+		min := findMin(sequence)
+		result[i] = sequence[min]
+		sequence = append(sequence[:min], sequence[min+1:]...)
 	}
 
 	return result
 }
 
-func SelectionSortInPlace(array []int) {
-	length := len(array)
+func SelectionSortInPlace(sequence []int) {
+	length := len(sequence)
 
 	for i := 0; i < length-1; i++ {
-		min := array[i]
+		min := sequence[i]
 		for j := i + 1; j < length; j++ {
-			if array[j] < min {
-				tmp := array[i]
-				array[i] = array[j]
-				array[j] = tmp
+			if sequence[j] < min {
+                Swap(sequence, i, j)
 			}
 		}
 	}
-
 }
