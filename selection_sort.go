@@ -33,9 +33,8 @@ func SelectionSortInPlace(sequence []int) {
 	length := len(sequence)
 
 	for i := 0; i < length - 1; i++ {
-		min := sequence[i]
 		for j := i + 1; j < length; j++ {
-			if sequence[j] < min {
+			if sequence[j] < sequence[i] {
                 Swap(sequence, i, j)
 			}
 		}
