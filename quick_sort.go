@@ -41,28 +41,30 @@ func QuickSortLomuto(sequence []int, low, high int) {
 }
 
 func partititionHoare(sequence []int, low, high int) int {
-	pivot := (low + high) / 2
+	pivot := sequence[(low + high) / 2]
 	left := low
 	right := high
-	for {
-		for sequence[left] < sequence[pivot] {
+	for left <= right {
+		for sequence[left] < pivot {
 			left++
 		}
-		for sequence[right] > sequence[pivot] {
+		for sequence[right] > pivot {
 			right--
 		}
 
-		if left >= right {
-			return right
+		if left <= right {
+            Swap(sequence, left, right)
+            left++
+            right--
 		}
-
-		Swap(sequence, left, right)
 	}
+
+    return left
 }
 func QuickSortHoare(sequence []int, low, high int) {
 	if low < high {
 		pivot := partititionHoare(sequence, low, high)
-		QuickSortHoare(sequence, low, pivot)
-		QuickSortHoare(sequence, pivot+1, high)
+		QuickSortHoare(sequence, low, pivot - 1)
+		QuickSortHoare(sequence, pivot, high)
 	}
 }
