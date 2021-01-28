@@ -1,10 +1,10 @@
-package gokken
+package sort
 
 import "testing"
 
-var _, small = CreateTestArrays(10)
-var _, medium = CreateTestArrays(100)
-var _, large = CreateTestArrays(1000)
+var _, small = createTestArrays(10)
+var _, medium = createTestArrays(100)
+var _, large = createTestArrays(1000)
 
 func benchmarkBubble(array []int, b *testing.B) {
     b.ReportAllocs()

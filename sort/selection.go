@@ -1,4 +1,4 @@
-package gokken
+package sort
 
 import "math"
 
@@ -35,7 +35,7 @@ func SelectionSortInPlace(sequence []int) {
 	for i := 0; i < length - 1; i++ {
 		for j := i + 1; j < length; j++ {
 			if sequence[j] < sequence[i] {
-                Swap(sequence, i, j)
+                swap(sequence, i, j)
 			}
 		}
 	}

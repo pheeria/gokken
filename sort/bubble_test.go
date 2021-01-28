@@ -1,22 +1,15 @@
-package gokken
+package sort
 
-import (
-	"reflect"
-	"testing"
-)
+import "testing"
 
 func TestBubbleSort(t *testing.T) {
-    sorted, unsorted := CreateTestArrays(10)
+    sorted, unsorted := createTestArrays(10)
 	BubbleSort(unsorted)
-	if !reflect.DeepEqual(sorted, unsorted) {
-		t.Errorf("got %v want %v", unsorted, sorted)
-    }
+    assertEqual(t, sorted, unsorted)
 }
 
 func TestOptimizedBubbleSort(t *testing.T) {
-    sorted, unsorted := CreateTestArrays(10)
+    sorted, unsorted := createTestArrays(10)
 	OptimizedBubbleSort(unsorted)
-	if !reflect.DeepEqual(sorted, unsorted) {
-		t.Errorf("got %v want %v", unsorted, sorted)
-    }
+    assertEqual(t, sorted, unsorted)
 }

@@ -1,4 +1,4 @@
-package gokken
+package sort
 
 func merge(left, right []int) []int{
     var result []int

@@ -1,4 +1,4 @@
-package gokken
+package sort
 
 func QuickSort(sequence []int) []int {
 	if len(sequence) < 2 {
@@ -25,11 +25,11 @@ func partitionLomuto(sequence []int, low, high int) int {
 	i := low
 	for j := low; j < high; j++ {
 		if sequence[j] < pivot {
-			Swap(sequence, i, j)
+			swap(sequence, i, j)
 			i++
 		}
 	}
-	Swap(sequence, i, high)
+	swap(sequence, i, high)
 	return i
 }
 func QuickSortLomuto(sequence []int, low, high int) {
@@ -53,7 +53,7 @@ func partititionHoare(sequence []int, low, high int) int {
 		}
 
 		if left <= right {
-            Swap(sequence, left, right)
+            swap(sequence, left, right)
             left++
             right--
 		}

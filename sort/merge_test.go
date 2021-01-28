@@ -1,16 +1,9 @@
-package gokken
+package sort
 
-import (
-	"reflect"
-	"testing"
-)
+import "testing"
 
 func TestMergeSort(t *testing.T) {
-    sorted, unsorted := CreateTestArrays(10)
+    sorted, unsorted := createTestArrays(10)
 	unsorted = MergeSort(unsorted)
-
-	if !reflect.DeepEqual(sorted, unsorted) {
-		t.Errorf("got %v want %v", unsorted, sorted)
-	}
+    assertEqual(t, sorted, unsorted)
 }
-
