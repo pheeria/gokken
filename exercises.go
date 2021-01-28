@@ -15,11 +15,11 @@ func RecursiveCount(sequence []int) int {
 }
 
 func RecursiveMax(sequence []int, max int) int {
-    if max < sequence[0] {
-        max =  sequence[0]
-    }
+	if max < sequence[0] {
+		max = sequence[0]
+	}
 	if len(sequence) == 1 {
-        return max
+		return max
 	}
 	return RecursiveMax(sequence[1:], max)
 }

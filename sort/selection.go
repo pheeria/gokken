@@ -23,7 +23,7 @@ func SelectionSortNewArray(sequence []int) []int {
 	for i := 0; i < length; i++ {
 		min := findMin(sequence)
 		result[i] = sequence[min]
-		sequence = append(sequence[:min], sequence[min + 1:]...)
+		sequence = append(sequence[:min], sequence[min+1:]...)
 	}
 
 	return result
@@ -32,10 +32,10 @@ func SelectionSortNewArray(sequence []int) []int {
 func SelectionSortInPlace(sequence []int) {
 	length := len(sequence)
 
-	for i := 0; i < length - 1; i++ {
+	for i := 0; i < length-1; i++ {
 		for j := i + 1; j < length; j++ {
 			if sequence[j] < sequence[i] {
-                swap(sequence, i, j)
+				swap(sequence, i, j)
 			}
 		}
 	}
