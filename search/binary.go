@@ -18,7 +18,11 @@ func IterativeBinarySearch(list []int, target int) int {
     return -1
 }
 
-func RecursiveBinarySearch(list []int, low int, high int, target int) int {
+func RecursiveBinarySearch(list []int, target int) int {
+    return recursive(list, 0, len(list) - 1, target)
+}
+
+func recursive(list []int, low int, high int, target int) int {
     if low > high {
         return - 1
     }
@@ -29,11 +33,10 @@ func RecursiveBinarySearch(list []int, low int, high int, target int) int {
     }
 
     if list[mid] > target {
-        return RecursiveBinarySearch(list, low, mid - 1, target)
+        return recursive(list, low, mid - 1, target)
     } else if list[mid] < target {
-        return RecursiveBinarySearch(list, mid + 1, high, target)
+        return recursive(list, mid + 1, high, target)
     }
 
     return -1
 }
-
