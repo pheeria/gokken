@@ -17,3 +17,18 @@ func TestBreadthFirstSearch(t *testing.T) {
 	}
 }
 
+func TestBreadthFirstSearchEmpty(t *testing.T) {
+    outerFirst := Node{ 100, []*Node{} }
+    outerSecond := Node{ 200, []*Node{} }
+    innerFirst := Node{ 10, []*Node{ &outerFirst } }
+    innerSecond := Node{ 20, []*Node{ &outerSecond } }
+    root := Node{ 1, []*Node{ &innerFirst, &innerSecond } }
+
+	var want *Node = nil
+    got := BreadthFirstSearch(&root, 42)
+
+	if got != want {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+
